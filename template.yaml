@@ -1,0 +1,253 @@
+# ===== 良心云 订阅模板 =====
+# 此文件包含规则配置，节点会被 GitHub Actions 自动填充
+
+mixed-port: 7890
+allow-lan: false
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: '127.0.0.1:9090'
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: strict
+global-client-fingerprint: safari
+
+# ===== DNS 配置 =====
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  respect-rules: true
+  proxy-server-nameserver: [223.5.5.5, 119.29.29.29]
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://223.5.5.5/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+    - https://8.8.8.8/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    geosite: [gfw]
+    ipcidr: [240.0.0.0/4]
+    domain: [+.google.com, +.facebook.com, +.youtube.com]
+
+# ===== 代理节点 (会被 GitHub Actions 自动替换) =====
+proxies: []
+
+# ===== 代理组 =====
+proxy-groups:
+  - name: 良心云
+    type: select
+    proxies:
+      - 自动选择
+      - 故障转移
+
+  - name: 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 86400
+    tolerance: 100
+    proxies: []
+
+  - name: 故障转移
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 7200
+    proxies: []
+
+  - name: 流媒体
+    type: select
+    proxies:
+      - 良心云
+
+  - name: AI服务
+    type: select
+    proxies:
+      - 良心云
+
+  - name: Telegram
+    type: select
+    proxies:
+      - 良心云
+
+  - name: 微软服务
+    type: select
+    proxies:
+      - DIRECT
+      - 良心云
+
+  - name: 苹果服务
+    type: select
+    proxies:
+      - DIRECT
+      - 良心云
+
+# ===== 规则集 =====
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Reject/Reject_Domain.yaml"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Direct/Direct_Domain.yaml"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  direct-ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Direct/Direct_IP.yaml"
+    path: ./ruleset/direct-ip.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Proxy/Proxy_Domain.yaml"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  proxy-ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Proxy/Proxy_IP.yaml"
+    path: ./ruleset/proxy-ip.yaml
+    interval: 86400
+
+  telegram:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Telegram/Telegram.yaml"
+    path: ./ruleset/telegram.yaml
+    interval: 86400
+
+  telegram-ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Telegram/Telegram_IP.yaml"
+    path: ./ruleset/telegram-ip.yaml
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Google/Google.yaml"
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  google-ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Google/Google_IP.yaml"
+    path: ./ruleset/google-ip.yaml
+    interval: 86400
+
+  youtube:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/YouTube/YouTube.yaml"
+    path: ./ruleset/youtube.yaml
+    interval: 86400
+
+  ai:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/OpenAI/OpenAI.yaml"
+    path: ./ruleset/ai.yaml
+    interval: 86400
+
+  microsoft:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Microsoft/Microsoft.yaml"
+    path: ./ruleset/microsoft.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Apple/Apple.yaml"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  steam:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Steam/Steam.yaml"
+    path: ./ruleset/steam.yaml
+    interval: 86400
+
+  netflix:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Netflix/Netflix.yaml"
+    path: ./ruleset/netflix.yaml
+    interval: 86400
+
+  github:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/GitHub/GitHub.yaml"
+    path: ./ruleset/github.yaml
+    interval: 86400
+
+  china:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/China/China_Domain.yaml"
+    path: ./ruleset/china.yaml
+    interval: 86400
+
+  china-ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/China/China_IP.yaml"
+    path: ./ruleset/china-ip.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/ClashMeta/Private/Private_Domain.yaml"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+# ===== 分流规则 =====
+rules:
+  - RULE-SET,private,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,169.254.0.0/16,DIRECT
+  - RULE-SET,reject,REJECT
+  - RULE-SET,ai,AI服务
+  - RULE-SET,telegram,Telegram
+  - RULE-SET,telegram-ip,Telegram,no-resolve
+  - RULE-SET,google,良心云
+  - RULE-SET,google-ip,良心云,no-resolve
+  - RULE-SET,youtube,良心云
+  - RULE-SET,github,良心云
+  - RULE-SET,netflix,流媒体
+  - RULE-SET,steam,良心云
+  - RULE-SET,microsoft,微软服务
+  - RULE-SET,apple,苹果服务
+  - RULE-SET,proxy,良心云
+  - RULE-SET,proxy-ip,良心云,no-resolve
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,direct-ip,DIRECT,no-resolve
+  - RULE-SET,china,DIRECT
+  - RULE-SET,china-ip,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT
+  - MATCH,良心云
