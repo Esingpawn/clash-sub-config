@@ -41,7 +41,7 @@ dns:
     - +.facebook.com
     - +.youtube.com
 proxies:
-- name: 剩余流量：4.88 TB
+- name: 剩余流量：4.87 TB
   type: vless
   server: 127.0.0.1
   port: 443
@@ -679,7 +679,7 @@ proxy-groups:
   proxies:
   - 自动选择
   - 故障转移
-  - 剩余流量：4.88 TB
+  - 剩余流量：4.87 TB
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
@@ -715,7 +715,7 @@ proxy-groups:
   interval: 86400
   tolerance: 100
   proxies:
-  - 剩余流量：4.88 TB
+  - 剩余流量：4.87 TB
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
@@ -750,7 +750,7 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 7200
   proxies:
-  - 剩余流量：4.88 TB
+  - 剩余流量：4.87 TB
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
@@ -800,7 +800,7 @@ proxy-groups:
   - 🇸🇬新加坡专线02|BGP|流媒体
   - 🇸🇬新加坡专线03|BGP|流媒体
   - 🇸🇬新加坡专线04|BGP|流媒体
-  - 剩余流量：4.88 TB
+  - 剩余流量：4.87 TB
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
@@ -809,7 +809,7 @@ proxy-groups:
   type: select
   proxies:
   - 良心云
-  - 剩余流量：4.88 TB
+  - 剩余流量：4.87 TB
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
@@ -824,7 +824,7 @@ proxy-groups:
   proxies:
   - DIRECT
   - 良心云
-  - 剩余流量：4.88 TB
+  - 剩余流量：4.87 TB
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
@@ -834,7 +834,7 @@ proxy-groups:
   proxies:
   - DIRECT
   - 良心云
-  - 剩余流量：4.88 TB
+  - 剩余流量：4.87 TB
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
