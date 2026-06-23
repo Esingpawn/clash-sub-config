@@ -101,20 +101,6 @@ proxies:
     path: /liangxin/jp1
     headers:
       Host: jp2-lx.777076.xyz
-- name: 🇭🇰香港高速01|BGP|CMCU
-  type: vless
-  server: aws-link1.liangxin1.xyz
-  port: 35248
-  uuid: 2b503bb8-01b3-4b63-b0c8-ef4d10df9d2d
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: safari
-  servername: www.lamer.com.hk
-  reality-opts:
-    public-key: IGsSxC0wgn7wLy0NM0QN_yOREDKT_814Y_3_rbgDoTc
-    short-id: c8c0f951
 - name: 🇭🇰香港高速02|BGP|CMCU
   type: vless
   server: aws-link2.liangxin1.xyz
@@ -700,7 +686,6 @@ proxy-groups:
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
-  - 🇭🇰香港高速01|BGP|CMCU
   - 🇭🇰香港高速02|BGP|CMCU
   - 🇭🇰香港高速03|BGP|CMCU
   - 🇭🇰香港高速04|BGP|CMCU
@@ -736,7 +721,6 @@ proxy-groups:
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
-  - 🇭🇰香港高速01|BGP|CMCU
   - 🇭🇰香港高速02|BGP|CMCU
   - 🇭🇰香港高速03|BGP|CMCU
   - 🇭🇰香港高速04|BGP|CMCU
@@ -771,12 +755,12 @@ proxy-groups:
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
-  - 🇭🇰香港高速01|BGP|CMCU
   - 🇭🇰香港高速02|BGP|CMCU
   - 🇭🇰香港高速03|BGP|CMCU
   - 🇭🇰香港高速04|BGP|CMCU
   - 🇭🇰香港高速05|BGP|CMCU
   - 🇭🇰香港高速06|BGP|CMCU
+  - 🇸🇬新加坡高速01|BGP|CTCUCM
 - name: 流媒体
   type: select
   proxies:
@@ -821,7 +805,7 @@ proxy-groups:
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
-  - 🇭🇰香港高速01|BGP|CMCU
+  - 🇭🇰香港高速02|BGP|CMCU
 - name: Telegram
   type: select
   proxies:
@@ -830,12 +814,12 @@ proxy-groups:
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
-  - 🇭🇰香港高速01|BGP|CMCU
   - 🇭🇰香港高速02|BGP|CMCU
   - 🇭🇰香港高速03|BGP|CMCU
   - 🇭🇰香港高速04|BGP|CMCU
   - 🇭🇰香港高速05|BGP|CMCU
   - 🇭🇰香港高速06|BGP|CMCU
+  - 🇸🇬新加坡高速01|BGP|CTCUCM
 - name: 微软服务
   type: select
   proxies:
@@ -845,7 +829,7 @@ proxy-groups:
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
-  - 🇭🇰香港高速01|BGP|CMCU
+  - 🇭🇰香港高速02|BGP|CMCU
 - name: 苹果服务
   type: select
   proxies:
@@ -855,7 +839,7 @@ proxy-groups:
   - 套餐到期：长期有效
   - 🇯🇵日本高速01|CTCU|0.5x
   - 🇯🇵日本高速02|CTCU|0.5x
-  - 🇭🇰香港高速01|BGP|CMCU
+  - 🇭🇰香港高速02|BGP|CMCU
 rule-providers:
   reject:
     type: http
