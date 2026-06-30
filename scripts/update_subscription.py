@@ -11,7 +11,7 @@ import requests
 from datetime import datetime
 
 # 订阅地址
-SUB_URL = os.environ.get('SUB_URL', 'https://liangxin.xyz/api/v1/liangxin?OwO=4bfe667383e6019a0b004e78bb91d059')
+SUB_URL = os.environ.get('SUB_URL', 'https://liangxin.xyz/api/v1/liangxin?OwO=ecf4c4ed4078ccc59d5c6da0449d0799')
 
 # 文件路径
 TEMPLATE_PATH = 'template.yaml'
